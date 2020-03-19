@@ -14,32 +14,101 @@ function convertToMobile(){
   main.style.width = '100%'
   main.style.maxWidth = '100%'
   main.style.borderRadius = '0px'
+  main.style.fontSize = '50px'
   
   var logo = document.getElementsByClassName('logo')[0]
   logo.style.marginTop = '40px'
   
   var header = document.getElementsByClassName('header')[0]
   header.style.fontSize = '60px'
+  
+  var inputs = document.getElementsByClassName('inputs')[0]
+  inputs.style.flexDirection = 'column'
+  inputs.style.maxWidth = 'calc(100% - 100px)'
+  
+  var inputHalf1 = document.getElementsByClassName('inputHalf')[0]
+  var inputHalf2 = document.getElementsByClassName('inputHalf')[1]
+  inputHalf1.style.width = '100%'
+  inputHalf2.style.width = '100%'
+  inputHalf1.style.alignItems = 'flex-start'
+  inputHalf2.style.alignItems = 'flex-start'
+  inputHalf2.style.marginTop = '30px'
+  
+  var inputDiv1 = document.getElementsByClassName('inputDiv')[0]
+  var inputDiv2 = document.getElementsByClassName('inputDiv')[1]
+  inputDiv1.style.fontSize = '40px'
+  inputDiv2.style.fontSize = '40px'
+  
+  var input1 = document.getElementsByClassName('input')[0]
+  var input2 = document.getElementsByClassName('input')[1]
+  input1.style.height = '80px'
+  input2.style.height = '80px'
+  input1.style.borderRadius = '8px'
+  input2.style.borderRadius = '8px'
+  input1.style.width = '100%'
+  input2.style.width = '100px'
+  input1.style.fontSize = '40px'
+  input2.style.fontSize = '40px'
+  input1.style.paddingLeft = '10px'
+  input2.style.paddingLeft = '10px'
+  
+  var rebateBox = document.getElementsByClassName('rebateBox')[0]
+  rebateBox.style.maxWidth = 'calc(100% - 400px)'
+  rebateBox.style.height = '300px'
+  rebateBox.style.marginTop = '50px'
+  rebateBox.style.borderWidth = '7px'
+  
+  var rebateTitle = document.getElementsByClassName('rebateTitle')[0]
+  rebateTitle.style.fontSize = '65px'
+  
+  var rebateDisplay = document.getElementsByClassName('rebateDisplay')[0]
+  rebateDisplay.style.fontSize = '90px'
+  
+  var breakdown = document.getElementsByClassName('breakdown')[0]
+  breakdown.style.fontSize = '50px'
+  breakdown.style.maxWidth = '300px'
 }
 
 function usePct(){
+  if (document.getElementById('selectDollars').checked == false){
+    return
+  }
+  
   var bac = document.getElementById('bac')
-  bac.style.width = '40px'
   bac.placeholder = 'pct'
   bac.value = ''
   document.getElementById('selectDollars').checked = false
   document.getElementById('pctSign').innerText = '%'
   document.getElementById('dollarSign').innerText = ''
+  
+  // check for mobile view
+  if (typeof window.orientation !== 'undefined'){
+    bac.style.width = '100px'
+  }
+  else {
+    bac.style.width = '40px'
+  }
 }
 
 function useDollars(){
+  if (document.getElementById('selectPct').checked == false){
+    return
+  }
+
   var bac = document.getElementById('bac')
-  bac.style.width = '80px'
   bac.placeholder = 'dollars'
   bac.value = ''
   document.getElementById('selectPct').checked = false
   document.getElementById('pctSign').innerText = ''
   document.getElementById('dollarSign').innerText = '$'
+  
+  // check for mobile view
+  if (typeof window.orientation !== 'undefined'){
+    bac.style.width = '220px'
+  }
+  else {
+    bac.style.width = '80px'
+  }
 }
 
 function updateRebate(){
