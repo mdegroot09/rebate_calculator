@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="icon" href="http://example.com/favicon.png">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700&display=swap" rel="stylesheet">
+    <base target="_top">
+    <?!= include('CSS'); ?>
+  </head>
+  
+  <body>
+    <div class="main">
+      <img class="logo" style="width: calc(100% - 200px); max-width: 500px" src="https://phxstartupweek.com/wp-content/uploads/2020/01/Homie-Logo-RBG-01-1.png" alt="Homie logo"/>
+      <div class="header">Buyer Rebate Calculator</div>
+      <div class="inputs">
+        <div class="inputHalf">
+          <div class="inputTitle">Purchase Price</div>
+          <div class="inputDiv">
+            <span class="typeSign">$</span>
+            <input class="input" placeholder="price">
+          </div>
+        </div>
+        <div  class="inputHalf">
+          <div class="inputTitle">
+            BAC 
+            <div class="bacType">
+              <div style="display: flex; align-items: center; margin-left: 15px">
+                <input type="radio">
+                <span style="margin-left: 2px">$</span>
+              </div>
+              <div style="display: flex; align-items: center; margin-left: 15px">
+                <input type="radio" checked>
+                <span style="margin-left: 2px">%</span>
+              </div>
+            </div>
+          </div>
+          <div class="inputDiv">
+            <span class="typeSign" id="dollarSign"></span>
+            <input  class="input"placeholder="amount">
+            <span class="typeSign" id="pctSign">%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <?!= include('JavaScript'); ?>
+  </body>
+  
+</html>

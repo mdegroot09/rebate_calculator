@@ -1,0 +1,28 @@
+<script>
+
+window.addEventListener('load', load())
+
+function load(){
+  // check for mobile view
+  if (typeof window.orientation !== 'undefined'){
+    convertToMobile()
+  }
+}
+
+function convertToMobile(){
+  var main = document.getElementsByClassName('main')[0]
+  main.style.width = 'calc(100% - 40px)'
+  main.style.maxWidth = 'calc(100% - 40px)'
+  main.style.width = '100%'
+  main.style.maxWidth = '100%'
+//  main.style.height = 'calc(100% - 40px)'
+  main.style.borderRadius = '0px'
+  
+  var logo = document.getElementsByClassName('logo')[0]
+  logo.style.marginTop = '40px'
+  
+  var header = document.getElementsByClassName('header')[0]
+  header.style.fontSize = '70px'
+}
+
+</script>
