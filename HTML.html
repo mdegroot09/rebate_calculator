@@ -8,15 +8,17 @@
   </head>
   
   <body>
-    <div class="main">
+    <div class="main"> <!-- Start of main -->
+    
       <img class="logo" style="width: calc(100% - 200px); max-width: 500px" src="https://phxstartupweek.com/wp-content/uploads/2020/01/Homie-Logo-RBG-01-1.png" alt="Homie logo"/>
       <div class="header">Buyer Rebate Calculator</div>
-      <div class="inputs">
+      
+      <div class="inputs"> <!-- Start of inputs -->
         <div class="inputHalf">
           <div class="inputTitle">Purchase Price</div>
           <div class="inputDiv">
             <span class="typeSign">$</span>
-            <input class="input" id="price" placeholder="price">
+            <input class="input" id="price" placeholder="price" type="number" oninput="updateRebate()">
           </div>
         </div>
         <div  class="inputHalf">
@@ -35,12 +37,38 @@
           </div>
           <div class="inputDiv">
             <span class="typeSign" id="dollarSign"></span>
-            <input class="input" id="bac" placeholder="pct" value="3" type="number" style="width: 40px">
+            <input class="input" id="bac" placeholder="pct" value="3" type="number" style="width: 40px" oninput="updateRebate()">
             <span class="typeSign" id="pctSign">%</span>
           </div>
         </div>
+      </div> <!-- End of inputs -->
+      
+      <div class="rebateBox">
+        <div class="rebateTitle">
+          Buyer Rebate
+        </div>
+        <div class="rebateDisplay">
+          $<span id="rebateNum">0</span>
+        </div>
+      </div> 
+      
+      <div class="breakdown">
+        <div class="bdRow">
+          <div>BAC</div>
+          <div style="margin-left: 10px">$<span id="bdBAC">0</span></div>
+        </div>
+        <div class="bdRow">
+          <div>-</div>
+          <div style="margin-left: 10px">$<span id="bdHomieRev">0</span></div>
+        </div>
+        <hr style="width: 100%; margin: 0">
+        <div class="bdRow" style="font-weight: 500">
+          <div>Total</div>
+          <div style="margin-left: 10px">$<span id="bdRebate">0</span></div>
+        </div>
       </div>
-    </div>
+      
+    </div> <!-- End of main -->
     <?!= include('JavaScript'); ?>
   </body>
   

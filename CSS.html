@@ -12,6 +12,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .main {
@@ -78,7 +79,49 @@ body {
   width: 80px;
   border-radius: 3px;
   border: 1px solid #aaaaaa;
-  padding-left: 3px;
+  padding-left: 4px;
+  font-size: 15px;
+}
+
+.rebateBox {
+  width: calc(100% - 100px);
+  max-width: 400px;
+  height: 150px;
+  border: 5px solid #00dec0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.rebateTitle {
+  font-size: 35px;
+}
+
+.rebateDisplay {
+  font-size: 55px;
+  font-weight: 700;
+  color: #00dec0;
+  margin-top: 10px;
+}
+
+.breakdown {
+  width: calc(100% - 100px);
+  max-width: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 50px 0;
+  font-size: 20px;
+}
+
+.bdRow {
+  width: 100%;
+  display: flex; 
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 2px 0;
 }
 
 @media only screen and (max-width: 768px) {
