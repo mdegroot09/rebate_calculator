@@ -16,7 +16,7 @@
           <div class="inputTitle">Purchase Price</div>
           <div class="inputDiv">
             <span class="typeSign">$</span>
-            <input class="input" placeholder="price">
+            <input class="input" id="price" placeholder="price">
           </div>
         </div>
         <div  class="inputHalf">
@@ -24,18 +24,18 @@
             BAC 
             <div class="bacType">
               <div style="display: flex; align-items: center; margin-left: 15px">
-                <input type="radio">
-                <span style="margin-left: 2px">$</span>
+                <input type="radio" id="selectPct" onClick="usePct()" checked>
+                <span style="margin-left: 2px">%</span>
               </div>
               <div style="display: flex; align-items: center; margin-left: 15px">
-                <input type="radio" checked>
-                <span style="margin-left: 2px">%</span>
+                <input type="radio" id="selectDollars" onClick="useDollars()">
+                <span style="margin-left: 2px">$</span>
               </div>
             </div>
           </div>
           <div class="inputDiv">
             <span class="typeSign" id="dollarSign"></span>
-            <input  class="input"placeholder="amount">
+            <input class="input" id="bac" placeholder="pct" value="3" type="number" style="width: 40px">
             <span class="typeSign" id="pctSign">%</span>
           </div>
         </div>

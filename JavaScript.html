@@ -11,11 +11,8 @@ function load(){
 
 function convertToMobile(){
   var main = document.getElementsByClassName('main')[0]
-  main.style.width = 'calc(100% - 40px)'
-  main.style.maxWidth = 'calc(100% - 40px)'
   main.style.width = '100%'
   main.style.maxWidth = '100%'
-//  main.style.height = 'calc(100% - 40px)'
   main.style.borderRadius = '0px'
   
   var logo = document.getElementsByClassName('logo')[0]
@@ -23,6 +20,24 @@ function convertToMobile(){
   
   var header = document.getElementsByClassName('header')[0]
   header.style.fontSize = '70px'
+}
+
+function usePct(){
+  var bac = document.getElementById('bac')
+  bac.style.width = '40px'
+  bac.placeholder = 'pct'
+  document.getElementById('selectDollars').checked = false
+  document.getElementById('pctSign').innerText = '%'
+  document.getElementById('dollarSign').innerText = ''
+}
+
+function useDollars(){
+  var bac = document.getElementById('bac')
+  bac.style.width = '80px'
+  bac.placeholder = 'dollars'
+  document.getElementById('selectPct').checked = false
+  document.getElementById('pctSign').innerText = ''
+  document.getElementById('dollarSign').innerText = '$'
 }
 
 </script>
