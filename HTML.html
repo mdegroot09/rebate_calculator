@@ -8,10 +8,12 @@
   </head>
   
   <body>
-    <div class="main"> <!-- Start of main -->
-    
-      <img class="logo" style="width: calc(100% - 200px); max-width: 500px" src="https://phxstartupweek.com/wp-content/uploads/2020/01/Homie-Logo-RBG-01-1.png" alt="Homie logo"/>
-      <div class="header">Buyer Rebate Calculator</div>
+    <div class="main" onClick=""> <!-- Start of main -->
+      
+      <div class="top">
+        <img class="logo" style="width: calc(100% - 200px); max-width: 500px" src="https://phxstartupweek.com/wp-content/uploads/2020/01/Homie-Logo-RBG-01-1.png" alt="Homie logo"/>
+        <div class="header">Buyer Rebate Calculator</div>
+      </div>
       
       <div class="inputs"> <!-- Start of inputs -->
         <div class="inputHalf">
@@ -25,13 +27,13 @@
           <div class="inputTitle">
             BAC 
             <div class="bacType">
-              <div style="display: flex; align-items: center; margin-left: 15px">
-                <input type="radio" id="selectPct" onClick="usePct()" checked>
-                <span style="margin-left: 2px">%</span>
+              <div class="bacTypeHalf" style="display: flex; align-items: center; margin-left: 15px">
+                <!-- <input type="radio" id="selectPct" onClick="usePct()" checked> -->
+                <div id="selectPct" style="margin-left: 2px; font-weight: 900; color: #00dec0; cursor: pointer; font-size: 25px" onClick="usePct()" checked>%</div>
               </div>
-              <div style="display: flex; align-items: center; margin-left: 15px">
-                <input type="radio" id="selectDollars" onClick="useDollars()">
-                <span style="margin-left: 2px">$</span>
+              <div class="bacTypeHalf" style="display: flex; align-items: center; margin-left: 15px">
+                <!-- <input type="radio" id="selectDollars" onClick="useDollars()"> -->
+                <div id="selectDollars" style="margin-left: 2px; font-weight: 400; color: #aaaaaa; cursor: pointer;" onClick="useDollars()">$</div>
               </div>
             </div>
           </div>
@@ -63,7 +65,7 @@
         </div>
         <hr style="width: 100%; margin: 0">
         <div class="bdRow" style="font-weight: 500">
-          <div>Total</div>
+          <div>Rebate</div>
           <div style="margin-left: 10px">$<span id="bdRebate">0</span></div>
         </div>
       </div>
