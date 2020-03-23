@@ -31,7 +31,7 @@
             <div class="bacType">
               <div class="bacTypeHalf">
                 <!-- <input type="radio" id="selectPct" onClick="usePct()" checked> -->
-                <div class="selectBac" id="selectPct" style="font-weight: 900; color: #00dec0; font-size: 25px" onClick="usePct()" checked>%</div>
+                <div class="selectBac activeBacType" id="selectPct" onClick="usePct()" checked>%</div>
               </div>
               <div class="bacTypeHalf">
                 <!-- <input type="radio" id="selectDollars" onClick="useDollars()"> -->
@@ -41,7 +41,7 @@
           </div>
           <div class="inputDiv">
             <span class="typeSign" id="dollarSign"></span>
-            <input class="input" id="bac" placeholder="pct" value="3" type="number" style="width: 40px" oninput="updateRebate()">
+            <input class="input bacPct" id="bac" placeholder="pct" value="3" type="number" oninput="updateRebate()">
             <span class="typeSign" id="pctSign">%</span>
           </div>
         </div>

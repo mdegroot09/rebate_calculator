@@ -4,25 +4,19 @@ window.addEventListener('load', load())
 
 function load(){ 
   // mark selectPct as checked
-  var selectPct = document.getElementById('selectPct')
-  selectPct.checked = true
+  //  var selectPct = document.getElementById('selectPct')
+  //  selectPct.checked = true
   
   // get screen size in inches
-  var dpi_x = document.getElementById('dpi').offsetWidth;
-  var width = screen.width / dpi_x;
-  var dpi_y = document.getElementById('dpi').offsetHeight;
-  var height = screen.height / dpi_y;
- 
-  var orientation = (screen.orientation || {}).type || screen.mozOrientation || screen.msOrientation;
-  if (orientation != "landscape-primary" && width > 5) {
-    width = height
-  }
-  
-  // check for mobile view
-  // if (typeof window.orientation !== 'undefined' && screen.width * screen.height < 400000){
-  if (width < 5){
-    // convertToMobile()
-  }
+  //  var dpi_x = document.getElementById('dpi').offsetWidth;
+  //  var width = screen.width / dpi_x;
+  //  var dpi_y = document.getElementById('dpi').offsetHeight;
+  //  var height = screen.height / dpi_y;
+  // 
+  //  var orientation = (screen.orientation || {}).type || screen.mozOrientation || screen.msOrientation;
+  //  if (orientation != "landscape-primary" && width > 5) {
+  //    width = height
+  //  }
 }
 
 function convertToMobile(){
@@ -107,33 +101,21 @@ function usePct(){
   var bac = document.getElementById('bac')
   bac.placeholder = 'pct'
   bac.value = ''
+  bac.classList.add('bacPct')
+  bac.classList.remove('bacDollars')
   
   // update old 
   var oldEl = document.getElementById('selectDollars')
   oldEl.checked = false
-  oldEl.style.fontWeight = 400
-  oldEl.style.color = '#aaaaaa'
+  oldEl.classList.remove('activeBacType')
   
   // update new
   var newEl = document.getElementById('selectPct')
   newEl.checked = true
-  newEl.style.fontWeight = 900
-  newEl.style.color = '#00dec0'
+  newEl.classList.add('activeBacType')
   
   document.getElementById('pctSign').innerText = '%'
   document.getElementById('dollarSign').innerText = ''
-  
-  // check for mobile view
-  if (typeof window.orientation !== 'undefined' && screen.height * screen.width < 400000){
-    bac.style.width = '100px'
-    oldEl.style.fontSize = "40px"
-    newEl.style.fontSize = "50px"
-  }
-  else {
-    bac.style.width = '40px'
-    oldEl.style.fontSize = "20px"
-    newEl.style.fontSize = "25px"
-  }
 }
 
 function useDollars(){
@@ -144,33 +126,21 @@ function useDollars(){
   var bac = document.getElementById('bac')
   bac.placeholder = 'dollars'
   bac.value = ''
+  bac.classList.add('bacDollars')
+  bac.classList.remove('bacPct')
   
   // update old 
   var oldEl = document.getElementById('selectPct')
   oldEl.checked = false
-  oldEl.style.fontWeight = 400
-  oldEl.style.color = '#aaaaaa'
+  oldEl.classList.remove('activeBacType')
   
   // update new
   var newEl = document.getElementById('selectDollars')
   newEl.checked = true
-  newEl.style.fontWeight = 900
-  newEl.style.color = '#00dec0'
+  newEl.classList.add('activeBacType')
   
   document.getElementById('pctSign').innerText = ''
   document.getElementById('dollarSign').innerText = '$'
-  
-  // check for mobile view
-  if (typeof window.orientation !== 'undefined' && screen.height * screen.width < 400000){
-    bac.style.width = '220px'
-    oldEl.style.fontSize = "40px"
-    newEl.style.fontSize = "50px"
-  }
-  else {
-    bac.style.width = '80px'
-    oldEl.style.fontSize = "20px"
-    newEl.style.fontSize = "25px"
-  }
 }
 
 function updateRebate(){
