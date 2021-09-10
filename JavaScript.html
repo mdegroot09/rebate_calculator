@@ -57,57 +57,62 @@ function useDollars(){
 function updateRebate(){
   var price = document.getElementById('price').value
   var bacVal = document.getElementById('bac').value
-  var bac, homieRev, rebate, rebate50Pct, rebate5000
+  var bac, rebate, usingLoans, usingTitle, pct
   
   // get total BAC
+  var homieToHomie = document.getElementById('homieToHomie').checked
   var selectPct = document.getElementById('selectPct')
-  if (selectPct.checked == true){
+  if (homieToHomie){
+    bac = 5000
+    hidePriceAndBac()
+  }  
+  else if (selectPct.checked == true){
     bac = price * bacVal / 100
+    showPriceAndBac()
   }
   else {
     bac = bacVal
+    showPriceAndBac()
   }
   
   bac = Math.round(bac * 100) / 100
-  
-  // check if Homie makes $2500 before 50% split
-  rebate50Pct = bac / 2
-  if (rebate50Pct < 2500){
-    rebate50Pct = (bac - 2500) / 2
+  pct = 0
+
+  // if using Homie Loans
+  usingLoans = document.getElementById('usingLoans').checked
+  if (usingLoans){
+    pct += 30
   }
-  
-  // check if Homie makes $2500 before giving up to $5000
-  rebate5000 = bac - 2500
-  if (rebate5000 > 5000){
-    rebate5000 = 5000
+
+  // if using Homie Title
+  usingTitle = document.getElementById('usingTitle').checked
+  if (usingTitle){
+    pct += 20
   }
-  
-  if (rebate5000 > rebate50Pct){
-    rebate = rebate5000
-  } else {
-    rebate = rebate50Pct
-  }
-  
+
   // set rebate to 0 if negative
-  if (rebate < 0){
+  if (!rebate || rebate < 0){
     rebate = 0
   }
   
+  rebate = bac * (pct / 100)
   rebate = Math.round(rebate * 100) / 100
   
   // main rebate figure
   document.getElementById('rebateNum').innerText = rebate
-  
-  // breakdown figures
-  if (rebate > 0){
-    document.getElementById('bdBAC').innerText = bac
-    document.getElementById('bdHomieRev').innerText = bac - rebate
-    document.getElementById('bdRebate').innerText = rebate
-  } else {
-    document.getElementById('bdBAC').innerText = bac
-    document.getElementById('bdHomieRev').innerText = bac
-    document.getElementById('bdRebate').innerText = 0
-  }
+
+  // breakdown updates
+  document.getElementById('bdBAC').innerText = bac
+  document.getElementById('bdHomieRev').innerText = pct
+  document.getElementById('bdRebate').innerText = rebate
+}
+
+function hidePriceAndBac(){
+  document.getElementById('priceAndBac').style.display = 'none'
+}
+
+function showPriceAndBac(){
+  document.getElementById('priceAndBac').style.display = 'flex'
 }
 
 </script>
