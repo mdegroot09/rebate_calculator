@@ -17,7 +17,14 @@
         <div class="header">Buyer Rebate Calculator</div>
       </div>
       
-      <div class="inputs"> <!-- Start of inputs -->
+      <div class="inputs homieToHomieDiv">
+        <div class="inputTitle">
+          Homie to Homie
+          <input type="checkbox" class="input checkbox" id="homieToHomie" oninput="updateRebate()"/>
+        </div>
+      </div>
+      
+      <div class="inputs" id="priceAndBac"> 
         <div class="inputHalf">
           <div class="inputTitle">Purchase Price</div>
           <div class="inputDiv">
@@ -45,7 +52,22 @@
             <span class="typeSign" id="pctSign">%</span>
           </div>
         </div>
-      </div> <!-- End of inputs -->
+      </div> 
+      
+      <div class="inputs checkboxDiv">
+        <div class="inputHalf">
+          <div class="inputTitle">
+            Homie Loans
+            <input type="checkbox" class="input checkbox" id="usingLoans" oninput="updateRebate()"/>
+          </div>
+        </div>
+        <div class="inputHalf inputHalf2">
+          <div class="inputTitle">
+            Homie Title
+            <input type="checkbox" class="input checkbox" id="usingTitle" oninput="updateRebate()">
+          </div>
+        </div>
+      </div>
       
       <div class="rebateBox">
         <div class="rebateTitle">
@@ -62,8 +84,8 @@
           <div style="margin-left: 10px">$<span id="bdBAC">0</span></div>
         </div>
         <div class="bdRow">
-          <div>-</div>
-          <div style="margin-left: 10px">$<span id="bdHomieRev">0</span></div>
+          <div>x</div>
+          <div style="margin-left: 10px"><span id="bdHomieRev">0</span>%</div>
         </div>
         <hr style="width: 100%; margin: 0">
         <div class="bdRow" style="font-weight: 500">
