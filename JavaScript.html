@@ -91,15 +91,15 @@ function updateRebate(){
 
   rebate = Number(bac) * (pct / 100)
 
-  // Homie must keep at least $5k
-  if (bac - rebate < 5000){
-    let fees = (bac - 5000 > 0) ? 5000 : bac
-    rebate = bac - fees
-    showFees(true, fees)
-  }
-  else {
-    showFees(false, pct)
-  }
+  // // Homie must keep at least $5k
+  // if (bac - rebate < 5000){
+  //   let fees = (bac - 5000 > 0) ? 5000 : bac
+  //   rebate = bac - fees
+  //   showFees(true, fees)
+  // }
+  // else {
+  //   showFees(false, pct)
+  // }
 
   // set rebate to 0 if negative
   if (!rebate || rebate < 0){
@@ -150,6 +150,7 @@ function CurrencyFormatted(amount) {
     s = intDigits.join('')
     if (arr[1]){ s += '.' + arr[1]}
   }
+  if (s == 0){s = 0}
 	return s;
 }
 
