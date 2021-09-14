@@ -76,34 +76,49 @@ function updateRebate(){
   }
   
   bac = Math.round(bac * 100) / 100
+  
   pct = 0
-
   // if using Homie Loans
   usingLoans = document.getElementById('usingLoans').checked
   if (usingLoans){
     pct += 30
   }
-
   // if using Homie Title
   usingTitle = document.getElementById('usingTitle').checked
   if (usingTitle){
     pct += 20
   }
 
+  rebate = Number(bac) * (pct / 100)
+
+  // Homie must keep at least $5k
+  if (bac - rebate < 5000){
+    let fees = (bac - 5000 > 0) ? 5000 : bac
+    rebate = bac - fees
+    showFees(true, fees)
+  }
+  else {
+    showFees(false, pct)
+  }
+
   // set rebate to 0 if negative
   if (!rebate || rebate < 0){
     rebate = 0
   }
-  
-  rebate = bac * (pct / 100)
-  rebate = Math.round(rebate * 100) / 100
+  else {
+    // format positive rebate
+    rebate = CurrencyFormatted(Math.round(rebate * 100) / 100)
+  }
+
+  // format bac
+  bac = CurrencyFormatted(bac)
   
   // main rebate figure
   document.getElementById('rebateNum').innerText = rebate
 
   // breakdown updates
   document.getElementById('bdBAC').innerText = bac
-  document.getElementById('bdHomieRev').innerText = pct
+  document.getElementById('bdHomiePct').innerText = pct
   document.getElementById('bdRebate').innerText = rebate
 }
 
@@ -113,6 +128,43 @@ function hidePriceAndBac(){
 
 function showPriceAndBac(){
   document.getElementById('priceAndBac').style.display = 'flex'
+}
+
+function CurrencyFormatted(amount) {
+	var i = parseFloat(amount);
+	if(isNaN(i)) { i = 0; }
+	var minus = '';
+	if(i < 0) { minus = '-'; }
+	i = Math.abs(i);
+	i = parseInt((i + .005) * 100);
+	i = i / 100;
+	s = new String(i);
+	if(s.indexOf('.') < 0) { s; }
+	if(s.indexOf('.') == (s.length - 2)) { s += '0'; }
+	s = minus + s;
+  if (s.split('.')[0].split('').length > 3){
+    let arr = s.split('.')
+    let intDigits = arr[0].split('')
+    let i = intDigits.length - 3;
+    intDigits.splice(i, 0, ',')
+    s = intDigits.join('')
+    if (arr[1]){ s += '.' + arr[1]}
+  }
+	return s;
+}
+
+function showFees(showFees, amount){
+  amount = CurrencyFormatted(amount)
+  if (showFees){
+    document.getElementById('pct').style.display = 'none'
+    document.getElementById('fees').style.display = 'flex'
+    document.getElementById('bdHomieFees').innerText = amount
+  }
+  else {
+    document.getElementById('fees').style.display = 'none'
+    document.getElementById('pct').style.display = 'flex'
+    document.getElementById('bdHomiePct').innerText = amount
+  }
 }
 
 </script>
